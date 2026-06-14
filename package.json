@@ -1,0 +1,14 @@
+{
+  "name": "civicfix-ai-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CivicFix AI - AI-powered smart city issue reporting and resolution platform",
+  "scripts": {
+    "install:all": "npm install --prefix frontend && npm install --prefix backend",
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "frontend": "npm run dev --prefix frontend",
+    "backend": "npm run dev --prefix backend",
+    "seed": "npm run seed --prefix backend"
+  },
+  "devDependencies": {"concurrently": "^9.1.0"}
+}
