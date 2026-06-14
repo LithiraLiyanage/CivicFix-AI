@@ -1,0 +1,12 @@
+const rules=[
+ {category:'Road Damage',department:'Road Development Unit',severity:34,keywords:['road','pothole','broken road','crack','accident','vehicle damage','පාර']},
+ {category:'Street Light',department:'Municipal Lighting Unit',severity:25,keywords:['light','lamp','dark road','streetlight','night','electricity']},
+ {category:'Garbage Issue',department:'Waste Management Authority',severity:22,keywords:['garbage','waste','smell','collection','dump','trash']},
+ {category:'Drainage Block',department:'Drainage & Flood Control',severity:32,keywords:['drain','blocked','water stuck','canal','drainage','overflow']},
+ {category:'Flood Risk',department:'Drainage & Flood Control',severity:38,keywords:['flood','rain','water level','overflow','heavy rain']},
+ {category:'Water Leak',department:'Water Supply Maintenance',severity:28,keywords:['leak','pipe','water line','broken pipe','water wasting']},
+ {category:'Unsafe Area',department:'Public Safety Response',severity:36,keywords:['unsafe','danger','crime','dark area','harassment','accident risk']}
+]
+const urgencyScore={Low:6,Medium:16,High:28,Critical:40}
+export function classifyIssue({title='',description='',urgency='Medium',imageCount=0,duplicateCount=0}){ const text=`${title} ${description}`.toLowerCase(); let best={category:'Other',department:'Municipal Help Desk',severity:15,hits:0}; for(const rule of rules){ const hits=rule.keywords.filter(k=>text.includes(k.toLowerCase())).length; if(hits>best.hits) best={...rule,hits} } const confidence=Math.min(98,Math.max(52,58+best.hits*12+(description.length>80?8:0))); const priorityScore=Math.min(100,Math.round(best.severity+(urgencyScore[urgency]||16)+Math.min(10,imageCount*3)+Math.min(10,duplicateCount*2)+(best.hits>1?6:0))); const riskLevel=priorityScore>80?'Critical':priorityScore>60?'High':priorityScore>30?'Medium':'Low'; return {suggestedCategory:best.category,confidence,suggestedDepartment:best.department,priorityScore,riskLevel,explanation:best.hits?`Detected ${best.hits} civic-risk keyword group(s) and routed to ${best.department}.`:'No strong category keywords detected. Manual review recommended.'} }
+export function haversineKm(a,b){ if(!a||!b) return 999; const R=6371,dLat=(b.lat-a.lat)*Math.PI/180,dLng=(b.lng-a.lng)*Math.PI/180; const s=Math.sin(dLat/2)**2+Math.cos(a.lat*Math.PI/180)*Math.cos(b.lat*Math.PI/180)*Math.sin(dLng/2)**2; return 2*R*Math.atan2(Math.sqrt(s),Math.sqrt(1-s)) }

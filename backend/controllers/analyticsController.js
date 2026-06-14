@@ -1,0 +1,2 @@
+import Report from '../models/Report.js'
+export async function overview(req,res,next){ try{ const reports=await Report.find(); const group=(key)=>reports.reduce((a,r)=>{const k=r[key]||'Unknown';a[k]=(a[k]||0)+1;return a},{}); res.json({total:reports.length,resolved:reports.filter(r=>r.status==='Resolved').length,active:reports.filter(r=>!['Resolved','Closed'].includes(r.status)).length,critical:reports.filter(r=>r.riskLevel==='Critical').length,byCategory:group('category'),byDistrict:group('district'),byStatus:group('status'),avgResolutionHours:36})}catch(e){next(e)} }

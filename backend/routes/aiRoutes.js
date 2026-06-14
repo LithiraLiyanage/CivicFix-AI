@@ -1,0 +1,1 @@
+import express from 'express'; import { classifyIssue } from '../utils/aiClassifier.js'; const router=express.Router(); router.post('/classify',(req,res)=>res.json(classifyIssue(req.body))); router.post('/priority-score',(req,res)=>res.json(classifyIssue(req.body))); export default router

@@ -1,0 +1,1 @@
+import express from 'express'; import { overview } from '../controllers/analyticsController.js'; const router=express.Router(); router.get('/overview',overview); router.get('/public',overview); router.get('/category',overview); router.get('/district',overview); router.get('/monthly',overview); export default router
