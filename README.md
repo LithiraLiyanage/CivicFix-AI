@@ -323,33 +323,6 @@ The React app includes local demo data using Zustand and localStorage. This mean
 
 ---
 
-## 📸 Screenshots
-
-Add your screenshots here after running the project:
-
-```bash
-frontend/public/screenshots/landing.png
-frontend/public/screenshots/citizen-dashboard.png
-frontend/public/screenshots/admin-dashboard.png
-frontend/public/screenshots/live-map.png
-frontend/public/screenshots/report-detail.png
-```
-
-Suggested README image block:
-
-```md
-![Landing](frontend/public/screenshots/landing.png)
-![Dashboard](frontend/public/screenshots/admin-dashboard.png)
-```
-
----
-
-## 🏆 Interview Explanation
-
-> I built CivicFix AI as a smart city civic issue reporting platform for real Sri Lankan public infrastructure problems. Citizens can report issues with location and images, while the system uses AI-style classification to detect the issue type, calculate priority score, suggest the correct department, detect duplicates and manage the full resolution workflow. Admins and department officers get role-based dashboards with maps, analytics, SLA timers and report timelines. This project demonstrates React, backend API design, MongoDB modeling, authentication, role-based access control, maps, analytics, validations and real-world problem solving.
-
----
-
 ## 🔮 Future Improvements
 
 - 🤖 Connect OpenAI / Gemini for advanced classification
