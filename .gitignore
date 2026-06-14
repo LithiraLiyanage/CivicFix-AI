@@ -1,9 +1,8 @@
-node_modules
+node_modules/
 .env
-.env.local
+dist/
+build/
+mongodb_data/
+uploads/
+*.log
 .DS_Store
-dist
-build
-coverage
-server/uploads/*
-!server/uploads/.gitkeep
