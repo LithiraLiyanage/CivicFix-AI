@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+body { margin:0; background:#050505; color:#F8FAFC; overflow-x:hidden; }
+* { box-sizing:border-box; }
+.leaflet-container { min-height: 420px; border-radius: 24px; background:#111; }
+.glass { background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.12); backdrop-filter: blur(18px); }
+.card { @apply glass rounded-3xl p-6 shadow-glow; }
+.input { @apply w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-pearl outline-none transition focus:border-flare focus:ring-4 focus:ring-flare/10; }
+.label { @apply mb-2 block text-sm font-semibold text-pearl; }
+.err { @apply mt-2 text-xs text-flare; }
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-bold transition active:scale-[.98]; }
+.btn-primary { @apply btn bg-gradient-to-r from-ember via-flare to-amber text-black shadow-glow hover:brightness-110; }
+.btn-ghost { @apply btn border border-white/10 bg-white/[0.04] text-pearl hover:border-flare/50 hover:bg-flare/10; }
+.badge { @apply inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-bold; }
+.navlink { @apply flex items-center gap-3 rounded-2xl px-4 py-3 text-sm text-muted transition hover:bg-white/[0.06] hover:text-pearl; }
+.navlink.active { @apply bg-gradient-to-r from-flare/20 to-caution/10 text-pearl ring-1 ring-flare/30; }
+.bg-grid { background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 42px 42px; }
+.shimmer { position:relative; overflow:hidden; }
+.shimmer:after { content:''; position:absolute; inset:0; transform:translateX(-100%); background:linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent); animation: shimmer 2.8s infinite; }
+@keyframes shimmer { 100% { transform:translateX(100%); } }
+@keyframes pulseGlow { 0%,100%{ box-shadow:0 0 0 rgba(239,68,68,0);} 50%{ box-shadow:0 0 42px rgba(239,68,68,.25);} }
+.pulse-glow { animation:pulseGlow 3s ease-in-out infinite; }
+::-webkit-scrollbar { width:10px; height:10px; } ::-webkit-scrollbar-thumb { background:#2a2a2a; border-radius:999px; } ::-webkit-scrollbar-thumb:hover { background:#DC2626; }
